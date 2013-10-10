@@ -1,9 +1,9 @@
 News::Application.routes.draw do
   devise_for :users
   resources :posts do
-    get '/posts/:post_id/upvote' => 'concerns/posts#upvote'
-    get '/posts/:post_id/downvote' => 'concerns/posts#downvote'
-    get '/posts/:post_id/latest' => 'concerns/posts#latest'
+    get '/posts/:id/upvote' => 'posts#upvote', :as => "upvote"
+    get '/posts/:id/downvote' => 'posts#downvote', :as => "downvote"
+    get '/posts/:id/latest' => 'posts#latest', :as => "latest"
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -53,7 +53,7 @@ News::Application.routes.draw do
   #   end
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
-  root :to => "posts#index"
+  root :to => "posts#new"
   # Example resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
