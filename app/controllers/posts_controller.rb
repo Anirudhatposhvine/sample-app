@@ -74,11 +74,13 @@ class PostsController < ApplicationController
   def upvote
     @post = Post.find(params[:id])
     @post.increment!(:votes, 1)
+    @votes=@post.votes
   end
 
   def downvote
     @post = Post.find(params[:id])
     @post.decrement! :votes, 1
+    @votes = @post.votes
   end
 
   private
