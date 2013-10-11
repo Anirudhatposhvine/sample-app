@@ -24,8 +24,8 @@
         <td><%= post.user.email %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Upvote', upvote_post_path(post) %></td>
-        <td><%= link_to 'Downvote', downvote_post_path(post) %></td>
+        <td><%= link_to 'Upvote', post_upvote_path(post, :post_id => post.id) %></td>
+        <td><%= link_to 'Downvote', post_downvote_path(post, :post_id => post.id) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
